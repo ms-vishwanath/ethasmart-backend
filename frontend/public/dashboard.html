@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ethasmart - AI Optimization Dashboard</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="logo 3.jpeg">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <script>
+        if (localStorage.getItem("ethasmartLoggedIn") !== "true") {
+            window.location.href = "index.html";
+        }
+    </script>
+</head>
+
+<body class="dashboard">
+
+
+<div class="sidebar">
+    <div class="logo-box">
+        <img src="logo 3.jpeg" width="40">
+        <h2>ETHASMART</h2>
+    </div>
+
+    <ul>
+        <li style="color:#00f5c4;">
+            <i class="fas fa-chart-line"></i> Dashboard
+        </li>
+        <li onclick="location.href='insights.html'">
+            <i class="fas fa-brain"></i> AI Insights
+        </li>
+        <li onclick="location.href='energy.html'">
+            <i class="fas fa-bolt"></i> Energy
+        </li>
+        <li onclick="location.href='maintenance.html'">
+            <i class="fas fa-screwdriver-wrench"></i> Maintenance
+        </li>
+        <li onclick="location.href='index.html'">
+            <i class="fas fa-sign-out-alt"></i> Logout
+        </li>
+    </ul>
+</div>
+
+<div class="main">
+
+    <div class="cards">
+        <div class="card">
+            <i class="fas fa-temperature-high card-icon"></i>
+            <h3>Temperature</h3>
+            <p id="temp">32°C</p>
+        </div>
+
+        <div class="card">
+            <i class="fas fa-flask card-icon"></i>
+            <h3>pH Level</h3>
+            <p id="ph">5.2</p>
+        </div>
+
+        <div class="card">
+            <i class="fas fa-clock card-icon"></i>
+            <h3>Fermentation Time</h3>
+            <p id="time">18 hrs</p>
+        </div>
+
+        <div class="card">
+            <i class="fas fa-chart-area card-icon"></i>
+            <h3>Predicted Yield</h3>
+            <p id="yield">96.4%</p>
+        </div>
+    </div>
+
+    <div class="cards">
+
+        <div class="card">
+            <i class="fas fa-temperature-high card-icon"></i>
+            <h3>Temperature Trend</h3>
+            <canvas id="tempChart"></canvas>
+        </div>
+
+        <div class="card">
+            <i class="fas fa-flask card-icon"></i>
+            <h3>pH Level Trend</h3>
+            <canvas id="phChart"></canvas>
+        </div>
+
+        <div class="card">
+            <i class="fas fa-clock card-icon"></i>
+            <h3>Fermentation Time Trend</h3>
+            <canvas id="timeChart"></canvas>
+        </div>
+
+        <div class="card">
+            <i class="fas fa-chart-area card-icon"></i>
+            <h3>Predicted Yield Trend</h3>
+            <canvas id="yieldChart"></canvas>
+        </div>
+
+    </div>
+    <div class="ai-box">
+        <h3>AI Recommendation</h3>
+        <p id="suggestion">
+            Increase temperature by 1.5°C to improve yield by 2.8%.
+        </p>
+    </div>
+    
+    <div class="info-section">
+
+        <div class="about-box">
+            <h2>About Ethasmart</h2>
+            <p>
+                Ethasmart is an AI-powered optimization platform designed to enhance
+                fermentation efficiency, energy management, and predictive maintenance.
+                Our intelligent analytics help industries achieve maximum yield,
+                reduce downtime, and optimize operational costs.
+            </p>
+        </div>
+
+        <div class="contact-box">
+            <h2>Contact Us</h2>
+
+            <form>
+                <input type="text" placeholder="Your Name" required>
+                <input type="email" placeholder="Your Email" required>
+                <textarea rows="4" placeholder="Your Message"></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+
+            <div class="contact-info">
+                <p>
+                    <a href="mailto:support@ethasmart.ai" class="contact-link">
+                        <i class="fas fa-envelope"></i> support@ethasmart.ai
+                    </a>
+                </p>
+
+                <p>
+                    <a href="tel:+919876543210" class="contact-link">
+                        <i class="fas fa-phone"></i> +91 98765 43210
+                    </a>
+                </p>
+                <a href="https://maps.app.goo.gl/Dew1AAquy38sYKdc7" 
+                target="_blank" class="contact-link">
+                <i class="fas fa-map-marker-alt"></i> Erode, India</a>
+
+            </div>
+        </div>
+
+        </div>
+
+</div>
+
+<script src="config.js"></script>
+<script src="script.js">
+    function logout() 
+    {
+        localStorage.removeItem("ethasmartLoggedIn");
+        localStorage.removeItem("ethasmartUser");
+        window.location.href = "index.html";
+    }
+</script>
+</body>
+</html>

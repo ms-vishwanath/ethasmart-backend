@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <title>Ethasmart - AI Insights</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="logo 3.jpeg">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+    <script>
+
+        if (localStorage.getItem("ethasmartLoggedIn") !== "true") {
+            window.location.href = "index.html";
+        }
+
+    </script>
+
+</head>
+
+<body class="dashboard">
+
+    <p id="backendStatus">Checking...</p>
+
+    <div class="sidebar">
+
+        <a href="dashboard.html" class="logo-box">
+            <img src="logo 3.jpeg" width="40">
+            <h2>ETHASMART</h2>
+        </a>
+
+        <ul>
+
+            <li onclick="location.href='dashboard.html'">
+                <i class="fas fa-chart-line"></i> Dashboard
+            </li>
+
+            <li style="color:#00f5c4;">
+                <i class="fas fa-brain"></i> AI Insights
+            </li>
+
+            <li onclick="location.href='energy.html'">
+                <i class="fas fa-bolt"></i> Energy
+            </li>
+
+            <li onclick="location.href='maintenance.html'">
+                <i class="fas fa-screwdriver-wrench"></i> Maintenance
+            </li>
+
+            <li onclick="toggleTheme()" id="themeToggleBtn">
+                <i class="fas fa-sun"></i> Light Mode
+            </li>
+
+            <li onclick="logout()">
+                <i class="fas fa-sign-out-alt"></i> Logout
+            </li>
+
+        </ul>
+    </div>
+
+    <div class="main">
+
+        <div class="top-header">
+            <h1 style="margin-bottom: 0;">AI Performance Insights</h1>
+            <div class="notification-center" onclick="toggleNotifications()">
+                <i class="fas fa-bell"></i>
+                <span class="badge" id="notifBadge" style="display:none;">0</span>
+                <div class="notif-dropdown" id="notifDropdown" style="display:none;">
+                    <div class="notif-header">Recent Alerts</div>
+                    <div id="notifList">
+                        <div class="notif-item" style="padding: 10px; color: #cbd5e1;">Loading alerts...</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="ai-box" style="margin-top: 30px;">
+
+            <h3>Predictive Analysis</h3>
+
+            <p id="insightSummary">
+                Loading AI summary...
+            </p>
+
+            <p style="margin-top:10px;">
+                <b>Risk Level:</b> <span id="riskLevel">Loading...</span>
+            </p>
+
+        </div>
+
+        <div class="ai-box">
+
+            <h3>AI Recommendations</h3>
+
+            <ul id="recList">
+
+                <li>Loading recommendations...</li>
+
+            </ul>
+
+        </div>
+
+        <div class="cards">
+
+            <div class="card">
+                <h3>Confidence Score</h3>
+                <p>98.2%</p>
+            </div>
+
+            <div class="card">
+                <h3>Anomaly Detection</h3>
+                <p>0 Found</p>
+            </div>
+
+        </div>
+
+    </div>
+
+    <script>
+
+        function logout() {
+
+            localStorage.removeItem("ethasmartLoggedIn");
+            localStorage.removeItem("ethasmartUser");
+            localStorage.removeItem("token");
+
+            window.location.href = "index.html";
+
+        }
+
+    </script>
+
+    <script src="config.js"></script>
+<script src="script.js"></script>
+
+</body>
+
+</html>

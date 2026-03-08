@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up - ETHASMART</title>
+    <link rel="icon" href="logo 3.jpeg">
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+</head>
+
+<body class="login-page">
+    <div class="login">
+        <div class="login-card">
+
+            <div class="brand">
+                <a href="index.html" class="logo-box">
+                    <img src="logo 3.jpeg" alt="ETHASMART">
+                    <h2>ETHASMART</h2>
+                </a>
+            </div>
+
+            <p class="subtitle">Create a new account</p>
+
+            <form id="signupForm" autocomplete="off">
+                <div class="field">
+                    <label>New Username</label>
+                    <div class="input-wrap">
+                        <i class="fas fa-user-plus"></i>
+                        <input type="text" id="username" placeholder="Choose a username" required />
+                    </div>
+                </div>
+
+                <div class="field">
+                    <label>New Password</label>
+                    <div class="input-wrap">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="password" placeholder="Create a password" required />
+                    </div>
+                </div>
+
+                <button type="submit">Sign Up</button>
+                <p style="margin-top:12px; text-align:center;">
+                    <a href="index.html" style="color:#00f5c4; text-decoration:none;">
+                        Already have an account? Login here
+                    </a>
+                </p>
+                <p id="error-msg" style="margin-top:12px; color:#ff6b6b; text-align:center;"></p>
+            </form>
+
+        </div>
+    </div>
+
+    <script src="config.js"></script>
+    <script src="signup.js"></script>
+</body>
+
+</html>

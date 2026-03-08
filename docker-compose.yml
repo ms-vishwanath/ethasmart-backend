@@ -1,0 +1,18 @@
+# EthaSmart Backend only (use your existing nginx proxy for frontend / API)
+# Run: docker compose up -d
+# Stop: docker compose down
+
+services:
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    image: ethasmart-backend
+    container_name: ethasmart-backend
+    ports:
+      - "${BACKEND_PORT:-7021}:7021"
+    environment:
+      - PORT=7021
+      - GEMINI_API_KEY=${GEMINI_API_KEY:-}
+      - FLASK_DEBUG=${FLASK_DEBUG:-false}
+    restart: unless-stopped
